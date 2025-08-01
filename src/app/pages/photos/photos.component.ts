@@ -12,6 +12,7 @@ export class PhotosComponent implements OnInit {
   visiblePhotos: any[] = [];
   batchSize = 6;
   loading = false;
+  showScrollTop = false;
 
   constructor(
     private photoService: PhotoService,
@@ -43,6 +44,13 @@ export class PhotosComponent implements OnInit {
     if (scrollPosition >= threshold) {
       this.loadMorePhotos();
     }
+
+    // Show "Scroll to Top" button
+    this.showScrollTop = window.scrollY > 500;
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
 markAsFavorite(photo: any): void {

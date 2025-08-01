@@ -53,3 +53,22 @@
   font-size: 12px;
   border-radius: 4px;
 }
+
+.scroll-top-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #0072ce; 
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+
+  &:hover {
+    background-color: #005999;
+  }
+}

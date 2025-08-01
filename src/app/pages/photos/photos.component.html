@@ -5,6 +5,14 @@
   </div>
 </div>
 
+<button
+  class="scroll-top-button"
+  *ngIf="showScrollTop"
+  (click)="scrollToTop()"
+>
+  ↑ Top
+</button>
+
 <!-- Spinner Loader -->
 <div *ngIf="loading" class="spinner-container">
   <div class="spinner"></div>

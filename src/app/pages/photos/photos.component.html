@@ -1,0 +1,11 @@
+<div class="photo-grid">
+  <div *ngFor="let photo of visiblePhotos" class="photo-item" [class.favorited]="favoritesService.isFavorite(photo.id)">
+    <img [src]="photo.url" [alt]="photo.title" (click)="markAsFavorite(photo)" />
+    <div class="overlay" *ngIf="favoritesService.isFavorite(photo.id)">✔ Added</div>
+  </div>
+</div>
+
+<!-- Spinner Loader -->
+<div *ngIf="loading" class="spinner-container">
+  <div class="spinner"></div>
+</div>

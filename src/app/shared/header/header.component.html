@@ -1,0 +1,15 @@
+<div class="nav-wrapper">
+  <button
+    [class.active]="currentRoute === '/'"
+    (click)="goTo('/')"
+  >
+    Photos
+  </button>
+
+  <button
+    [class.active]="currentRoute === '/favorites'"
+    (click)="goTo('/favorites')"
+  >
+    Favorites
+  </button>
+</div>

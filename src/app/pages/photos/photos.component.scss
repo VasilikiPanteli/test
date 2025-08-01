@@ -1,15 +1,84 @@
-.photo-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+// .photo-item {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
 
-.photo-item img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  cursor: pointer;
-  border-radius: 8px;
+// .photo-item img {
+//   width: 100%;
+//   max-width: 100%;
+//   height: auto;
+//   cursor: pointer;
+//   border-radius: 8px;
+// }
+
+// .photo-grid {
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 16px; /* increase spacing */
+//   padding: 16px;
+// }
+
+// .spinner-container {
+//   display: flex;
+//   justify-content: center;
+//   margin-top: 16px;
+// }
+
+// .spinner {
+//   border: 4px solid #f3f3f3; /* Light gray */
+//   border-top: 4px solid #333; /* Dark part of spinner */
+//   border-radius: 50%;
+//   width: 32px;
+//   height: 32px;
+//   animation: spin 0.8s linear infinite;
+// }
+
+// @keyframes spin {
+//   0% { transform: rotate(0deg); }
+//   100% { transform: rotate(360deg); }
+// }
+
+// .photo-item {
+//   position: relative;
+// }
+
+// .photo-item .overlay {
+//   position: absolute;
+//   top: 6px;
+//   right: 6px;
+//   background: rgba(40, 167, 69, 0.9); /* green */
+//   color: white;
+//   padding: 4px 8px;
+//   font-size: 12px;
+//   border-radius: 4px;
+// }
+
+// .scroll-top-button {
+//   position: fixed;
+//   bottom: 30px;
+//   right: 30px;
+//   padding: 10px 15px;
+//   font-size: 16px;
+//   background-color: #0072ce; 
+//   color: white;
+//   border: none;
+//   border-radius: 50px;
+//   cursor: pointer;
+//   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+//   z-index: 1000;
+
+//   &:hover {
+//     background-color: #005999;
+//   }
+// }
+
+
+:host {
+  display: block;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
 }
 
 .photo-grid {
@@ -19,56 +88,82 @@
   padding: 16px;
 }
 
+.photo-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &.favorited {
+    border: 2px solid #0072ce;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #0072ce;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    opacity: 0.95;
+  }
+}
+
 .spinner-container {
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  padding: 30px;
 }
 
 .spinner {
-  border: 4px solid #f3f3f3; /* Light gray */
-  border-top: 4px solid #333; /* Dark part of spinner */
+  width: 36px;
+  height: 36px;
+  border: 4px solid #ccc;
+  border-top-color: #0072ce;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  animation: spin 0.8s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.photo-item {
-  position: relative;
-}
-
-.photo-item .overlay {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background: rgba(40, 167, 69, 0.9); /* green */
-  color: white;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 4px;
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .scroll-top-button {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  padding: 10px 15px;
-  font-size: 16px;
-  background-color: #0072ce; 
+  background-color: #0072ce;
   color: white;
   border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #005999;
+    background-color: #005fa3;
+    cursor: pointer;
   }
 }
